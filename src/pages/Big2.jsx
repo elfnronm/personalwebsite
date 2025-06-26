@@ -1,9 +1,26 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
+import { useEffect } from "react";
+import { useLocation } from "react-router-dom";
+
 
 const Big2Project = () => {
   const [selectedImage, setSelectedImage] = useState(null);
   const [activeTab, setActiveTab] = useState("overview");
+  const location = useLocation();
+
+  useEffect(() => {
+    const hash = location.hash;
+    if (hash) {
+      const target = document.querySelector(hash);
+      if (target) {
+        setTimeout(() => {
+          target.scrollIntoView({ behavior: "smooth" });
+        }, 50); // Delay slightly to ensure layout is rendered
+      }
+    }
+  }, [location]);
+
 
   const openModal = (src) => setSelectedImage(src);
   const closeModal = () => setSelectedImage(null);
@@ -51,6 +68,7 @@ const Big2Project = () => {
 
   return (
     <>
+     <div id="top" className="absolute top-0" />
       {/* Animated Hero Section */}
       <div className="relative h-screen flex items-center justify-center bg-gradient-to-br from-indigo-900 to-purple-800 overflow-hidden">
         {/* Animated background elements */}

@@ -9,7 +9,7 @@ const Projects = () => {
     {
       title: "Big 2 Mobile Companion App",
       description: "An Android app that helps players track scores and rules for the Big 2 card game.",
-      link: "/projects/big2",
+      link: "/projects/big2#top",
     },
     {
       title: "Weather App",
@@ -26,15 +26,7 @@ const Projects = () => {
       <div className="max-w-5xl mx-auto px-4">
         <h2 className="text-3xl font-bold mb-10 text-center">Projects</h2>
         
-        {/* Loading Overlay */}
-        {loadingProject && (
-          <div className="fixed inset-0 bg-white/80 z-50 flex items-center justify-center">
-            <div className="text-center">
-              <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-blue-600 mx-auto mb-4"></div>
-              <p className="text-gray-700">Loading {loadingProject}...</p>
-            </div>
-          </div>
-        )}
+      
 
         <div className="grid md:grid-cols-3 gap-8">
           {projects.map((project, index) => (
