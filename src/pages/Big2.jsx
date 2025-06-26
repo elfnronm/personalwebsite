@@ -261,7 +261,8 @@ const Big2Project = () => {
             viewport={{ once: true }}
             className="mb-16"
           >
-            <h2 className="text-4xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-indigo-600 to-purple-600">
+                <h2 className="text-3xl md:text-4xl font-bold mb-6 text-indigo-800">
+
               Game-Changing Mobile Experience
             </h2>
             <div className="flex flex-col lg:flex-row gap-12 items-start">
@@ -372,7 +373,7 @@ const Big2Project = () => {
             viewport={{ once: true }}
           >
             <div className="text-center mb-16">
-              <h2 className="text-4xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-indigo-600 to-purple-600">
+              <h2 className="text-3xl md:text-4xl font-bold mb-4 text-indigo-800">
                 Design Evolution
               </h2>
               <p className="text-xl text-gray-600 max-w-3xl mx-auto">
@@ -560,7 +561,7 @@ const Big2Project = () => {
             className="max-w-7xl mx-auto px-4"
           >
             <div className="text-center mb-16">
-              <h2 className="text-4xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-indigo-600 to-purple-600">
+              <h2 className="text-3xl md:text-4xl font-bold mb-4 text-indigo-800">
                 User Testing Methodology
               </h2>
               <p className="text-xl text-gray-600 max-w-3xl mx-auto">
