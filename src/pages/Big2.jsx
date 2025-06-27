@@ -24,20 +24,23 @@ const Big2Project = () => {
 
   const openModal = (src) => setSelectedImage(src);
   const closeModal = () => setSelectedImage(null);
+  const base = process.env.PUBLIC_URL || "/personalwebsite";
+
 
   const finalUIImages = [
-    "/assets/Main_Big2.jpg",
-    "/assets/SelectGame_Big2.jpg",
-    "/assets/InGame_Big2.jpg",
-    "/assets/Score_Big2.jpg",
-    "/assets/Rules.png",
-  ];
+  `${base}/assets/Main_Big2.jpg`,
+  `${base}/assets/SelectGame_Big2.jpg`,
+  `${base}/assets/InGame_Big2.jpg`,
+  `${base}/assets/Score_Big2.jpg`,
+  `${base}/assets/Rules.png`,
+];
+
 
   const wireframes = [
-    "/assets/Lowfi1.png",
-    "/assets/Lowfi2.png",
-    "/assets/Lowfi3.png",
-  ];
+  `${base}/assets/Lowfi1.png`,
+  `${base}/assets/Lowfi2.png`,
+  `${base}/assets/Lowfi3.png`,
+];
 
   const stats = [
     {
@@ -123,7 +126,7 @@ const Big2Project = () => {
             className="inline-block"
           >
             <img
-              src="/assets/big2trans.png"
+              src={`${base}/assets/big2trans.png`}
               alt="Big 2 Logo"
               className="mx-auto w-60 md:w-80 drop-shadow-2xl"
             />

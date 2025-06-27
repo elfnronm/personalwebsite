@@ -11,7 +11,7 @@ const Big2 = lazy(() => import("./pages/Big2"));
 
 function App() {
   return (
-    <Router>
+    <Router basename={process.env.PUBLIC_URL}>
       <Navbar />
       <Suspense 
         fallback={
