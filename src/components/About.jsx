@@ -17,7 +17,7 @@ const About = () => {
               About <span className="text-blue-600">Me</span>
             </h2>
             <p className="text-gray-700 text-lg mb-6">
-              I’m Elif, a frontend developer with a passion for turning ideas into 
+              I’m Elif, a Computer Science student with a passion for turning ideas into 
               <span className="font-semibold"> intuitive, performant, and beautiful</span> web applications.
             </p>
             <div className="space-y-4">

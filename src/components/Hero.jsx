@@ -13,7 +13,7 @@ const Hero = () => {
         >
           Hi, I’m <span className="text-blue-600">Elif</span> 👋
           <span className="block text-2xl md:text-3xl font-normal mt-2 text-gray-600">
-            Frontend Developer & UI Enthusiast
+            Frontend Developer & UX-UI Enthusiast
           </span>
         </motion.h1>
 
