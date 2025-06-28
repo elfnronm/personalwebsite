@@ -6,8 +6,12 @@ import About from "./components/About";
 import Projects from "./components/Projects";
 import Contact from "./components/Contact";
 
-// Lazy load the Big2 component
+// Lazy load pages
 const Big2 = lazy(() => import("./pages/Big2"));
+const VoiceStudyProject = lazy(() => import("./pages/VoiceStudy")); 
+
+
+
 
 function App() {
   return (
@@ -41,6 +45,16 @@ function App() {
               </div>
             } 
           />
+
+            <Route 
+              path="/projects/voice-study" 
+              element={
+                <div className="page-transition">
+                  <VoiceStudyProject />
+                </div>
+              } 
+            />
+
         </Routes>
       </Suspense>
     </Router>
