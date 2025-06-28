@@ -12,12 +12,14 @@ const Projects = () => {
       link: "/projects/big2#top",
     },
     {
-      title: "Weather App",
-      description: "Simple app that shows weather using an external API.",
+      title: "Voice Assistant Research",
+      description: "HCI study on voice fidelity and user performance",
+      link: "/projects/voice-study",
     },
     {
       title: "To-Do List",
       description: "Task manager with local storage using React Hooks.",
+      
     },
   ];
 
