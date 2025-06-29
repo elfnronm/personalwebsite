@@ -157,251 +157,281 @@ export default function App() {
       <main id="project-content" className="max-w-5xl mx-auto px-4 py-16 space-y-24">
         
         {/* Overview Section */}
-        <section id="overview" className="scroll-mt-24 py-28 bg-[#f9fafb]"> {/* exact bg match */}
-  <div className="max-w-4xl mx-auto text-center bg-[#f9fafb] px-6 py-16 rounded-xl">
-    <h2 className="text-5xl font-extrabold text-slate-900 mb-10">Overview</h2> {/* more space here with mb-10 */}
-    <p className="text-gray-700 text-lg leading-relaxed mb-6">
-      As AI voice agents like ChatGPT’s Advanced Voice Mode become increasingly lifelike, we began to ask an important question: <br />
-        Does sounding human actually help people perform tasks better or does clarity matter more than personality when following instructions?
-    </p>
-    <p className="text-gray-700 text-lg leading-relaxed">
-      This led us to explore how different voice types robotic, human-like, and neutral impact a user’s ability to complete a multi-step task.<br />
-      Can a synthetic voice be just as effective, or even better, than a real human voice when it comes to guiding users through complex processes?
-    </p>
-  </div>
-</section>
+        <section id="overview" className="scroll-mt-24 py-28">
+          <div className="max-w-4xl mx-auto text-center">
+            <h2 className="text-5xl font-extrabold text-slate-900 mb-8">Overview</h2>
+            <p className="text-gray-700 text-lg leading-relaxed mb-6">
+              AI voice agents are becoming increasingly lifelike, but does sounding more human actually help users perform better during complex tasks? Our research set out to answer this question by isolating the impact of voice tone—robotic, neutral, or human-like—on users' ability to complete step-by-step instructions.
+            </p>
+            
+            <div className="bg-slate-100 p-6 rounded-xl my-8 text-left">
+              <h3 className="text-xl font-bold text-slate-800 mb-3">Goal</h3>
+              <p className="text-gray-700">
+                We aimed to test whether clarity or human-likeness in AI voice agents better supports task success. Our system gave us full control over voice playback, task flow, and interface—enabling us to rigorously evaluate voice type performance and user preference.
+              </p>
+            </div>
+            
+            <div className="bg-slate-100 p-6 rounded-xl my-8 text-left">
+              <h3 className="text-xl font-bold text-slate-800 mb-3">Problem</h3>
+              <p className="text-gray-700">
+                While AI voices are often designed for personality, little is known about their effectiveness for instructional tasks. Can a synthetic voice compete with a real human in helping people complete complex multi-step tasks?
+              </p>
+            </div>
+            
+            <div className="bg-slate-100 p-6 rounded-xl my-8 text-left">
+              <h3 className="text-xl font-bold text-slate-800 mb-3">How Research Shifted Our Direction</h3>
+              <p className="text-gray-700">
+                Early attempts to use origami instruction via audio failed—the task was too complex to isolate voice impact. This led us to design a simplified but controlled digital task environment, enabling us to evaluate voices without interference from task complexity.
+              </p>
+            </div>
+            
+            <div className="grid md:grid-cols-2 gap-6 mt-12">
+              <div className="bg-white p-6 rounded-xl shadow-sm border">
+                <h3 className="text-xl font-bold text-slate-800 mb-3 flex items-center"><FiUsers className="mr-2"/> Role</h3>
+                <p className="text-gray-600">UX Researcher / System Designer / Study Facilitator</p>
+              </div>
+              <div className="bg-white p-6 rounded-xl shadow-sm border">
+                <h3 className="text-xl font-bold text-slate-800 mb-3 flex items-center"><FiFileText className="mr-2"/> Duration</h3>
+                <p className="text-gray-600">8 Weeks</p>
+              </div>
+              <div className="bg-white p-6 rounded-xl shadow-sm border">
+                <h3 className="text-xl font-bold text-slate-800 mb-3 flex items-center"><FiLayout className="mr-2"/> Tools</h3>
+                <p className="text-gray-600">Figma, Unity, Excel, GoStats.jar, MQTT, Framer Motion</p>
+              </div>
+              <div className="bg-white p-6 rounded-xl shadow-sm border">
+                <h3 className="text-xl font-bold text-slate-800 mb-3 flex items-center"><FiCode className="mr-2"/> Skills</h3>
+                <p className="text-gray-600">Wizard of Oz testing, ANOVA analysis, qualitative interviews, interface prototyping, mixed-method evaluation</p>
+              </div>
+            </div>
+          </div>
+        </section>
 
+        {/* Process Section */}
+        <section id="process" className="scroll-mt-24 py-28">
+          <div className="max-w-4xl mx-auto">
+            <h2 className="text-5xl font-extrabold text-slate-900 mb-12 text-center">Our Research Process</h2>
+            
+            <div className="mb-20">
+              <h3 className="text-3xl font-bold text-slate-800 mb-6 text-center">Phase 1 – Ideation</h3>
+              <h4 className="text-xl font-semibold text-slate-700 mb-3">Who Are We Designing For?</h4>
+              <p className="text-gray-700 mb-4">
+                Task-focused users learning via voice instructions. The context: digital instructions for physical tasks like origami or shape-matching.
+              </p>
+              
+              <h4 className="text-xl font-semibold text-slate-700 mb-3">Early Explorations</h4>
+              <p className="text-gray-700 mb-4">
+                Our first prototype asked users to fold origami via audio. But we quickly found that the task complexity overwhelmed the ability to test voice clarity. This pivoted our direction.
+              </p>
+              <img
+                src={`${base}/assets/origami_prototype.png`}
+                alt="Origami Prototype"
+                className="w-full rounded-xl shadow-lg mb-6"
+              />
+            </div>
+            
+            <div className="mb-20">
+              <h3 className="text-3xl font-bold text-slate-800 mb-6 text-center">Phase 2 – System Design</h3>
+              <p className="text-gray-700 mb-4">
+                We designed a fully controlled Unity system with two interfaces:
+              </p>
+              <ul className="list-disc list-inside pl-4 text-gray-700 mb-6 space-y-2">
+                <li><strong>User Interface:</strong> A 5x5 grid with draggable shapes in various colors.</li>
+                <li><strong>Proctor Interface:</strong> A manual voice playback panel that allowed researchers to simulate AI voice control in real-time.</li>
+              </ul>
+              <p className="text-gray-700 mb-6">
+                This "Wizard of Oz" method let us control every aspect of the interaction while simulating different AI agents.
+              </p>
+              
+              {/* Big Images Side by Side */}
+              <div className="flex flex-col md:flex-row justify-center gap-8 w-full my-8">
+                {/* User Interface Image */}
+                <div className="flex-1 flex flex-col items-center">
+                  <img 
+                    src={`${base}/assets/highFi_hci.png`}
+                    alt="User's Interface"
+                    className="w-full h-auto max-h-[80vh] object-contain rounded-xl shadow-xl"
+                  />
+                  <p className="text-center text-lg font-medium text-slate-700 mt-4">User's Interface</p>
+                </div>
 
-       <section id="process" className="scroll-mt-24 py-28 bg-[#f9fafb] text-center">
-  <div className="max-w-3xl mx-auto px-4">
-    {/* Title */}
-   <h2 className="text-5xl font-extrabold text-slate-900 mb-10">Our Research Process</h2> {/* more space here with mb-10 */}
-
-
-    {/* Step 1 */}
-    <div className="mb-20">
-      <h3 className="text-2xl font-bold text-slate-800 flex justify-center items-center mb-4">
-         Ideation and Early Exploration
-      </h3>
-      <p className="text-gray-700 mb-4">
-        In early brainstorming sessions, we proposed different types of tasks the AI could guide users through.
-        Our first idea? Origami. We imagined testing whether participants could follow audio-only instructions
-        to fold a paper figure step by step.
-      </p>
-      <p className="text-gray-700 mb-4">
-        But testing this showed us the limits of complexity. Following origami directions purely by sound
-        was too difficult. It failed to isolate voice clarity from task complexity.
-      </p>
-                <img
-            src={`${base}/assets/origami_prototype.png`}
-            alt="Origami Prototype"
-            className="w-full max-w-3xl mx-auto rounded-xl shadow-lg mb-8"
-            />
-      <p className="text-gray-700">
-        That failure led us to a breakthrough: let’s build our own simplified digital environment—
-        one that gives us full control over variables and lets us test the voices fairly.
-      </p>
-    </div>
-
-    {/* Step 2 */}
-    <div className="mb-20">
-  <h3 className="text-2xl font-bold text-slate-800 flex justify-center items-center mb-4">
-    Designing the Apparatus
-  </h3>
-
-  <p className="text-gray-700 mb-4">
-    We created a custom Unity application with two interfaces: one for the participant, and one for the
-    proctor controlling the AI voice instructions behind the scenes.
-  </p>
-  <p className="text-gray-700 mb-4">
-    The participant UI featured a 5×5 grid and movable shapes of various colors and types.
-    Their goal was to place the shapes according to a 25-step instruction set, guided entirely by voice.
-  </p>
-  <p className="text-gray-700 mb-8">
-    Meanwhile, the proctor could control which clip played, skip instructions, restart, or pause.
-    This enabled us to simulate a Wizard of Oz–style setup while keeping the illusion of an AI voice agent.
-  </p>
-
-  {/* Big Images Side by Side */}
-  <div className="flex flex-row justify-center gap-8 w-full">
-    {/* User Interface Image */}
-    <div className="flex flex-col items-center">
-      <img 
-        src={`${base}/assets/highFi_hci.png`}
-        alt="User's Interface"
-        className="max-h-[100vh] w-auto object-contain"
-      />
-      <p className="text-center text-lg font-medium text-slate-700 mt-2">User's Interface</p>
-    </div>
-
-    {/* Proctor Interface Image */}
-    <div className="flex flex-col items-center">
-      <img 
-        src={`${base}/assets/proctorUi_hci.png`}
-        alt="Proctor's Interface"
-        className="max-h-[70vh] w-auto object-contain"
-      />
-      <p className="text-center text-lg font-medium text-slate-700 mt-2">Proctor's Interface</p>
-    </div>
-  </div>
-</div>
-
-
-    {/* Step 3: Literature Review */}
-<div className="mb-20">
-  <h3 className="text-2xl font-bold text-slate-800 flex justify-center items-center mb-4">
-    🔍 Literature Review
-  </h3>
-  <p className="text-gray-700 mb-4">
-    Before building the system, we grounded our curiosity in existing research. We looked into studies on AI voice tone, fidelity, personalization, and pacing—many of which focused on entertainment, meditation, or simple decision-making tasks.
-  </p>
-  <p className="text-gray-700 mb-4">
-    However, we noticed a gap: few papers explored how voice types affect users performing complex, step-by-step tasks. Most interfaces were evaluated in static or non-instructional contexts.
-  </p>
-  <p className="text-gray-700">
-    That insight shaped our direction. We decided to create a task environment that emphasized clarity, focus, and performance—and tested how voice qualities influenced user outcomes in instructional workflows.
-  </p>
-</div>
-
-
-
-
-  </div>
-</section>
-
-
-
+                {/* Proctor Interface Image */}
+                <div className="flex-1 flex flex-col items-center">
+                  <img 
+                    src={`${base}/assets/proctorUi_hci.png`}
+                    alt="Proctor's Interface"
+                    className="w-full h-auto max-h-[80vh] object-contain rounded-xl shadow-xl"
+                  />
+                  <p className="text-center text-lg font-medium text-slate-700 mt-4">Proctor's Interface</p>
+                </div>
+              </div>
+              
+              <div className="bg-blue-50 p-6 rounded-xl border border-blue-200 mt-8">
+                <h4 className="text-xl font-semibold text-blue-800 mb-3">Research Questions</h4>
+                <ul className="list-disc list-inside pl-4 text-blue-900 space-y-2">
+                  <li>How do different AI voice tones affect task success in instructional contexts?</li>
+                  <li>Do users prefer human-like voices, or do they value clarity and consistency more?</li>
+                  <li>Can synthetic voices rival human guidance in complex digital environments?</li>
+                </ul>
+              </div>
+            </div>
+            
+            <div className="mb-20">
+              <h3 className="text-3xl font-bold text-slate-800 mb-6 text-center">Phase 3 – Prototyping</h3>
+              <p className="text-gray-700 mb-4">
+                We iterated through several fidelity levels:
+              </p>
+              <ul className="list-disc list-inside pl-4 text-gray-700 mb-6 space-y-2">
+                <li><strong>Low-Fidelity Wireframes:</strong> Sketches to define core layout and flow</li>
+                <li><strong>Mid-Fidelity Prototype:</strong> Figma prototype to test control panel logic</li>
+                <li><strong>High-Fidelity Interface:</strong> Unity implementation of the grid, shapes, and instruction playback</li>
+              </ul>
+              <p className="text-gray-700">
+                Each prototype focused on clarity of task flow, audio pacing, and researcher control.
+              </p>
+            </div>
+            
+            <div className="mb-20">
+              <h3 className="text-3xl font-bold text-slate-800 mb-6 text-center">Phase 4 – Evaluation</h3>
+              <div className="grid md:grid-cols-2 gap-8">
+                <div>
+                  <h4 className="text-xl font-semibold text-slate-700 mb-3">Participants</h4>
+                  <p className="text-gray-700 mb-4">15 students (ages 18–29)</p>
+                  
+                  <h4 className="text-xl font-semibold text-slate-700 mb-3">Design</h4>
+                  <p className="text-gray-700 mb-2">Between-subjects experiment with 3 voice conditions:</p>
+                  <ul className="list-disc list-inside pl-4 text-gray-700 space-y-1">
+                    <li>Human</li>
+                    <li>Robotic</li>
+                    <li>ChatGPT Neutral (Ember)</li>
+                  </ul>
+                </div>
+                <div>
+                  <h4 className="text-xl font-semibold text-slate-700 mb-3">Data Collected</h4>
+                  <ul className="list-disc list-inside pl-4 text-gray-700 space-y-2">
+                    <li>Quantitative data: completion times, error rates, number of replays</li>
+                    <li>Qualitative data: interviews, open-ended feedback</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
 
         {/* Prototyping Section */}
-<section id="prototyping" className="scroll-mt-24">
-  <h2 className="text-3xl font-bold text-slate-800 mb-12 text-center">Design Evolution & Testing</h2>
-  <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
-    <div className="space-y-6">
-      {prototypes.map((p, index) => (
-        <motion.div
-          key={p.name}
-          whileHover={{ y: -5 }}
-          className="cursor-pointer"
-          onClick={() => handlePrototypeClick(index)}
-        >
-          <div className="bg-white p-6 rounded-xl border shadow-sm transition-shadow hover:shadow-lg">
-            <h4 className="font-bold text-lg text-slate-800">{p.name}</h4>
-            <p className="text-gray-600 text-sm">{p.description}</p>
+        <section id="prototyping" className="scroll-mt-24">
+          <h2 className="text-5xl font-extrabold text-slate-900 mb-12 text-center">Design Evolution & Testing</h2>
+          <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+            <div className="space-y-6">
+              {prototypes.map((p, index) => (
+                <motion.div
+                  key={p.name}
+                  whileHover={{ y: -5 }}
+                  className="cursor-pointer"
+                  onClick={() => handlePrototypeClick(index)}
+                >
+                  <div className="bg-white p-6 rounded-xl border shadow-sm transition-shadow hover:shadow-lg">
+                    <h4 className="font-bold text-lg text-slate-800">{p.name}</h4>
+                    <p className="text-gray-600 text-sm">{p.description}</p>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+            <div className="relative h-96 lg:h-auto min-h-[450px]">
+              <AnimatePresence mode="wait">
+                <motion.div
+                  key={prototypes[selectedPrototypeIndex].image}
+                  className="absolute inset-0 bg-cover bg-center rounded-xl shadow-2xl border-4 border-white cursor-pointer"
+                  style={{ backgroundImage: `url(${prototypes[selectedPrototypeIndex].image}), url('https://placehold.co/600x450/e2e8f0/94a3b8?text=Image+Not+Found')` }}
+                  onClick={() => openModal(prototypes[selectedPrototypeIndex].image)}
+                  initial={{ opacity: 0, scale: 0.95 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ duration: 0.5 }}
+                />
+              </AnimatePresence>
+              <p className="absolute bottom-2 left-1/2 -translate-x-1/2 text-center text-sm text-gray-500 bg-white bg-opacity-75 px-3 py-1 rounded">
+                Click an image to enlarge.
+              </p>
+            </div>
           </div>
-        </motion.div>
-      ))}
-    </div>
-    {/* Image section modified for background cover */}
-    <div className="relative h-96 lg:h-auto min-h-[450px]"> {/* Added relative and height for the container */}
-      <AnimatePresence mode="wait">
-        <motion.div
-          key={prototypes[selectedPrototypeIndex].image}
-          className="absolute inset-0 bg-cover bg-center rounded-xl shadow-2xl border-4 border-white cursor-pointer"
-          style={{ backgroundImage: `url(${prototypes[selectedPrototypeIndex].image}), url('https://placehold.co/600x450/e2e8f0/94a3b8?text=Image+Not+Found')` }}
-          onClick={() => openModal(prototypes[selectedPrototypeIndex].image)}
-          initial={{ opacity: 0, scale: 0.95 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.5 }}
-        />
-      </AnimatePresence>
-      <p className="absolute bottom-2 left-1/2 -translate-x-1/2 text-center text-sm text-gray-500 bg-white bg-opacity-75 px-3 py-1 rounded">
-        Click an image to enlarge.
-      </p>
-    </div>
-  </div>
-</section>
-
-
-
+        </section>
 
         {/* Outcome Section */}
         <section id="outcome" className="scroll-mt-24">
-          <h2 className="text-3xl font-bold text-slate-800 mb-12 text-center">Outcome & Final Conclusion</h2>
-          <div className="bg-white p-8 rounded-2xl shadow-xl border">
-            <div className="grid md:grid-cols-2 gap-8">
-              <div>
-                <h3 className="text-xl font-bold text-slate-800 mb-4">🧪 Research Setup</h3>
-                <p className="text-gray-600 mb-4">
-                  With the system ready, we recruited 15 participants from York University, matching the target demographic for AI voice users (ages 18–29). We used a between-subjects design, assigning each participant one of three voice types:
+          <div className="max-w-4xl mx-auto">
+            <h2 className="text-5xl font-extrabold text-slate-900 mb-12 text-center">Outcome & Final Conclusion</h2>
+            
+            <div className="bg-white p-8 rounded-2xl shadow-xl border mb-12">
+              <h3 className="text-3xl font-bold text-slate-800 mb-6 text-center">Key Findings</h3>
+              
+              <div className="grid md:grid-cols-2 gap-8 mb-8">
+                <div>
+                  <h4 className="text-xl font-semibold text-slate-700 mb-3">Quantitative Results</h4>
+                  <p className="text-gray-700 mb-4">
+                    No statistical difference in performance (ANOVA)
+                  </p>
+                  <p className="text-gray-700 mb-4">
+                    Participants preferred the clearest, most neutral voice
+                  </p>
+                </div>
+                <div>
+                  <h4 className="text-xl font-semibold text-slate-700 mb-3">Qualitative Insights</h4>
+                  <p className="text-gray-700 mb-4">
+                    Human voices were often rated as less understandable
+                  </p>
+                  <p className="text-gray-700">
+                    Robotic voices were less engaging but more predictable
+                  </p>
+                </div>
+              </div>
+              
+              <div className="bg-green-50 p-6 rounded-xl border border-green-200">
+                <h4 className="text-xl font-semibold text-green-800 mb-3">Answer</h4>
+                <p className="text-gray-700">
+                  Our study found no statistically significant performance differences between voice types—but participants overwhelmingly preferred the clearest voice (ChatGPT's neutral tone). Human-like voices often introduced inconsistencies, while robotic voices felt impersonal.
                 </p>
-                <ul className="list-disc list-inside pl-4 text-gray-600 space-y-2 mb-4">
-                  <li><strong>Human Voice</strong> – instructional, natural tone</li>
-                  <li><strong>ChatGPT Advanced Voice (Ember)</strong> – friendly and clear</li>
-                  <li><strong>Robotic Voice</strong> – flat and machine-like</li>
+              </div>
+            </div>
+            
+            <div className="bg-sky-600 text-white p-8 rounded-2xl shadow-xl mb-12">
+              <h3 className="text-3xl font-bold mb-6 text-center">Impact</h3>
+              <p className="text-lg mb-4">
+                Our findings suggest AI voices used for instruction should prioritize clarity and pacing over personality. This has major implications for voice interfaces in education, training, and task-based digital experiences.
+              </p>
+            </div>
+            
+            <div className="bg-white p-8 rounded-2xl shadow-xl border">
+              <h3 className="text-3xl font-bold text-slate-800 mb-6 text-center">Reflections & Takeaways</h3>
+              
+              <div className="grid md:grid-cols-2 gap-8 mb-8">
+                <div>
+                  <h4 className="text-xl font-semibold text-slate-700 mb-3">Build What You Can Control</h4>
+                  <p className="text-gray-700">
+                    Our own system let us manipulate every variable. This was critical for isolating the voice impact.
+                  </p>
+                </div>
+                <div>
+                  <h4 className="text-xl font-semibold text-slate-700 mb-3">Real Voices ≠ Better Experience</h4>
+                  <p className="text-gray-700">
+                    Human tone doesn't always translate into clarity. Simplicity and pacing often matter more.
+                  </p>
+                </div>
+                <div>
+                  <h4 className="text-xl font-semibold text-slate-700 mb-3">Adapt to Your Audience</h4>
+                  <p className="text-gray-700">
+                    We designed the UI for remote testing, accessibility, and ease of voice mapping.
+                  </p>
+                </div>
+              </div>
+              
+              <div className="bg-purple-50 p-6 rounded-xl border border-purple-200">
+                <h4 className="text-xl font-semibold text-purple-800 mb-3">Future Work</h4>
+                <ul className="list-disc list-inside pl-4 text-purple-900 space-y-2">
+                  <li>Automating data collection to reduce proctor burden</li>
+                  <li>Testing adaptive voices that change based on user behavior</li>
+                  <li>Expanding the study to include different age groups and multilingual voice agents</li>
+                  <li>Incorporating multitasking or distraction factors to better simulate real-world use</li>
                 </ul>
-                <p className="text-gray-600">
-                  Each participant completed the task, and we collected both quantitative (repeats, stops, time, errors) and qualitative data (interviews and post-task feedback).
-                </p>
               </div>
-              <div>
-                <h3 className="text-xl font-bold text-slate-800 mb-4">🎯 Key Findings</h3>
-                <div className="space-y-4">
-                  <div>
-                    <h4 className="font-semibold text-slate-800">Quantitative Results (via ANOVA):</h4>
-                    <p className="text-gray-600 text-sm">
-                      No statistically significant performance differences were found between the voice types—but trends told another story:
-                    </p>
-                    <ul className="list-disc list-inside pl-4 text-gray-600 text-sm mt-1 space-y-1">
-                      <li>The GPT voice had the fewest errors and the most consistent performance.</li>
-                      <li>The Human voice had the most failures, longest times, and highest variance.</li>
-                      <li>The Robotic voice fell somewhere in between.</li>
-                    </ul>
-                  </div>
-                  <div>
-                    <h4 className="font-semibold text-slate-800">Qualitative Insights:</h4>
-                    <p className="text-gray-600 text-sm">
-                      Participants consistently noted that clarity and consistency mattered more than personality. Surprisingly, many found the human voice harder to follow due to mispronunciations and unpredictable pacing.
-                    </p>
-                    <div className="bg-yellow-50 p-3 rounded-md border border-yellow-200 mt-2">
-                      <p className="text-sm italic text-gray-700">"It was clear, but a bit too fast—I felt like I had to rush."</p>
-                      <p className="text-sm italic text-gray-700 mt-1">"I liked how robotic it sounded. It didn't distract me."</p>
-                      <p className="text-sm italic text-gray-700 mt-1">"The human voice had weird pauses that made me lose focus."</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            
-            <div className="mt-8 bg-sky-600 text-white p-6 rounded-xl">
-              <h3 className="text-2xl font-bold mb-2 flex items-center justify-center"><FiAward className="w-7 h-7 mr-2"/>💡 Reflections and Impact</h3>
-              <p className="max-w-prose mx-auto">
-                This project taught us the importance of isolating variables when testing interaction methods. Our decision to build a custom Unity system allowed us to simulate real-world AI interactions while controlling every part of the experience.
-              </p>
-              <p className="max-w-prose mx-auto mt-3">
-                In instructional contexts, clarity and neutrality appear to outweigh the emotional engagement that human-like voices try to offer. Our findings support the idea that AI doesn't need to sound human—it just needs to be understood.
-              </p>
-            </div>
-            
-            <div className="mt-8 bg-gray-100 p-6 rounded-xl">
-              <h3 className="text-xl font-bold text-slate-800 mb-3">📚 Tools, Methods & Skills</h3>
-              <div className="grid sm:grid-cols-2 gap-4">
-                <div>
-                  <h4 className="font-semibold text-slate-700">Research Methods:</h4>
-                  <p className="text-gray-600 text-sm">Literature review, Wizard of Oz testing, thematic analysis, ANOVA statistics</p>
-                </div>
-                <div>
-                  <h4 className="font-semibold text-slate-700">Tools Used:</h4>
-                  <p className="text-gray-600 text-sm">Figma, Unity, MQTT networking, Excel (for data coding), Go.Stats.jar</p>
-                </div>
-                <div>
-                  <h4 className="font-semibold text-slate-700">Study Type:</h4>
-                  <p className="text-gray-600 text-sm">Between-subjects, remote testing, mixed-methods</p>
-                </div>
-                <div>
-                  <h4 className="font-semibold text-slate-700">Participants:</h4>
-                  <p className="text-gray-600 text-sm">15 university students (ages 18–29)</p>
-                </div>
-              </div>
-            </div>
-            
-            <div className="mt-6 bg-purple-50 p-6 rounded-xl border border-purple-200">
-              <h3 className="text-xl font-bold text-purple-800 mb-3">🔭 Future Work</h3>
-              <ul className="list-disc list-inside pl-4 text-purple-900/80 space-y-1">
-                <li>Automating data collection to reduce proctor burden</li>
-                <li>Testing adaptive voices that change based on user behavior</li>
-                <li>Expanding the study to include different age groups and multilingual voice agents</li>
-                <li>Incorporating multitasking or distraction factors to better simulate real-world use</li>
-              </ul>
             </div>
           </div>
         </section>
