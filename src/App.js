@@ -5,10 +5,13 @@ import Hero from "./components/Hero";
 import About from "./components/About";
 import Projects from "./components/Projects";
 import Contact from "./components/Contact";
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 // Lazy load pages
 const Big2 = lazy(() => import("./pages/Big2"));
 const VoiceStudyProject = lazy(() => import("./pages/VoiceStudy")); 
+
+
 
 
 
