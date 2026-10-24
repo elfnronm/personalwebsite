@@ -1,0 +1,17 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="robots" content="noindex" />
+    <title>Redirecting…</title>
+  </head>
+  <body>
+    <script>
+      var base = "/personalwebsite";
+      var route =
+        location.pathname.slice(base.length) + location.search + location.hash;
+      sessionStorage.setItem("portfolioRoute", route);
+      location.replace(base + "/");
+    </script>
+  </body>
+</html>

@@ -1,0 +1,87 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 620 560" role="img" aria-label="An illustrated person with a laptop sitting among wildflowers">
+  <defs>
+    <g id="grass" fill="none" stroke="#253126" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M0 21c-4-10-8-15-12-20M0 21C1 8 5 2 11-3M1 20c4-7 9-11 14-13"/>
+    </g>
+    <g id="flower" stroke="#252722" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M0 15c3 32 0 57-5 82" fill="none"/>
+      <path d="M-1 64c-11-13-20-12-25-10 3 11 11 15 23 16M-2 79c8-15 17-17 26-15-2 11-11 17-26 18" fill="#6d9b5a"/>
+      <path d="M-7 3C-24-10-23-23-10-22-1-22 0-12 0-7 5-21 18-26 22-17c4 9-5 16-13 19 15-3 22 5 17 14-5 8-17 6-25-1 5 12-2 21-12 17-9-4-8-14-5-22-12 7-23 3-22-7 0-11 14-14 31 0Z" fill="#9461a2"/>
+      <circle cx="0" cy="3" r="7" fill="#ebd88d"/>
+    </g>
+    <g id="tiny-flower" fill="#fff7cf" stroke="#fff7cf">
+      <ellipse cx="-7" cy="0" rx="7" ry="4" transform="rotate(-20 -7 0)"/>
+      <ellipse cx="6" cy="-2" rx="7" ry="4" transform="rotate(26 6 -2)"/>
+      <ellipse cx="-1" cy="-7" rx="4" ry="7"/>
+      <ellipse cx="0" cy="7" rx="5" ry="6"/>
+      <circle cx="0" cy="0" r="3" fill="#e1a654" stroke="none"/>
+    </g>
+  </defs>
+
+  <g opacity=".72">
+    <use href="#grass" transform="translate(52 70) rotate(-18)"/>
+    <use href="#grass" transform="translate(171 42) scale(.8)"/>
+    <use href="#grass" transform="translate(282 74) rotate(16)"/>
+    <use href="#grass" transform="translate(490 56) rotate(-12)"/>
+    <use href="#grass" transform="translate(574 100) rotate(19)"/>
+    <use href="#grass" transform="translate(65 233) scale(.75)"/>
+    <use href="#grass" transform="translate(195 184) rotate(-24)"/>
+    <use href="#grass" transform="translate(554 225) rotate(14)"/>
+    <use href="#grass" transform="translate(95 393) rotate(-11)"/>
+    <use href="#grass" transform="translate(186 342) scale(.7)"/>
+    <use href="#grass" transform="translate(528 384) rotate(8)"/>
+    <use href="#grass" transform="translate(573 488) rotate(-19)"/>
+    <use href="#grass" transform="translate(32 510) scale(.9)"/>
+    <use href="#grass" transform="translate(210 503) rotate(17)"/>
+  </g>
+
+  <use href="#flower" transform="translate(117 124) rotate(-8) scale(.82)"/>
+  <use href="#flower" transform="translate(508 151) rotate(9) scale(.75)"/>
+  <use href="#flower" transform="translate(74 326) rotate(-13) scale(1.05)"/>
+  <use href="#flower" transform="translate(533 442) rotate(12) scale(.88)"/>
+  <use href="#flower" transform="translate(218 465) rotate(7) scale(.56)"/>
+  <use href="#tiny-flower" transform="translate(289 110) scale(.65)"/>
+  <use href="#tiny-flower" transform="translate(28 172) scale(.55)"/>
+  <use href="#tiny-flower" transform="translate(556 288) scale(.72)"/>
+  <use href="#tiny-flower" transform="translate(154 264) scale(.55)"/>
+  <use href="#tiny-flower" transform="translate(468 67) scale(.5)"/>
+  <use href="#tiny-flower" transform="translate(458 501) scale(.52)"/>
+
+  <ellipse cx="343" cy="456" rx="155" ry="24" fill="#83b960" opacity=".45"/>
+
+  <!-- Hair behind the body -->
+  <path d="M375 166c46-12 82 11 92 58 11 49-9 80 27 145 9 16 14 32 11 40-36 5-64-6-88-27-33-31-53-84-65-133-8-36-15-67 23-83Z" fill="#252422" stroke="#252422" stroke-width="4" stroke-linejoin="round"/>
+
+  <!-- Crossed legs and shoes -->
+  <path d="M268 380c-37 14-53 39-47 59 12 21 43 20 81 13l85-14c33-4 48-12 55-29 5-15-4-31-24-37l-150 8Z" fill="#48453f" stroke="#252422" stroke-width="4" stroke-linejoin="round"/>
+  <path d="M343 408c-27 23-23 43-6 51 16 7 53 0 99-15 15-5 25-14 27-24-22-14-43-20-64-24Z" fill="#5a554e" stroke="#252422" stroke-width="4" stroke-linejoin="round"/>
+  <path d="M228 437c-14 4-21 17-15 25 12 10 34 9 56 2l22-9-11-19Z" fill="#f7e9d6" stroke="#252422" stroke-width="4" stroke-linejoin="round"/>
+  <path d="M421 433c7 7 22 11 38 8 11-1 23 6 22 16-5 12-34 17-65 10l-24-8 12-22Z" fill="#f7e9d6" stroke="#252422" stroke-width="4" stroke-linejoin="round"/>
+
+  <!-- Sweater and neck -->
+  <path d="M362 262c-10 27-34 30-51 37-32 14-55 42-52 73 4 30 34 50 74 50 54 0 110-16 123-49 7-18-7-55-27-75-20-19-33-28-67-36Z" fill="#d5b6df" stroke="#252422" stroke-width="4" stroke-linejoin="round"/>
+  <path d="M353 258c0 20 13 31 27 34 17-2 28-16 24-34Z" fill="#f5d9c4" stroke="#252422" stroke-width="4" stroke-linejoin="round"/>
+  <path d="M298 338c9 19 25 34 49 42M430 326c-10 25-20 40-37 48" fill="none" stroke="#8d6d9b" stroke-width="4" stroke-linecap="round"/>
+
+  <!-- Face and hair -->
+  <path d="M328 216c-1-48 26-71 66-69 38 2 57 28 51 72-4 47-25 72-60 75-38 2-58-27-57-78Z" fill="#f7ddc9" stroke="#252422" stroke-width="4" stroke-linejoin="round"/>
+  <path d="M325 225c-7-15-12-51 2-73 16-25 45-36 74-30 38 8 58 35 56 66-17 2-35-13-48-27-19 19-40 25-73 21 2 16 0 30-11 43Z" fill="#252422" stroke="#252422" stroke-width="4" stroke-linejoin="round"/>
+  <path d="M330 219c-16-4-18 17-8 25 5 4 10 3 13 1M441 213c14-7 19 9 12 20-4 5-9 7-15 5" fill="#f7ddc9" stroke="#252422" stroke-width="4" stroke-linejoin="round"/>
+  <path d="M358 231c4-3 9-3 13 0M410 230c4-3 8-3 12-1" fill="none" stroke="#252422" stroke-width="4" stroke-linecap="round"/>
+  <circle cx="365" cy="238" r="2.8" fill="#252422"/>
+  <circle cx="416" cy="237" r="2.8" fill="#252422"/>
+  <ellipse cx="350" cy="255" rx="11" ry="6" fill="#edaaa1" opacity=".65"/>
+  <ellipse cx="433" cy="252" rx="10" ry="6" fill="#edaaa1" opacity=".65"/>
+  <path d="M384 263c5 4 11 4 16-1" fill="none" stroke="#252422" stroke-width="2.8" stroke-linecap="round"/>
+
+  <!-- Laptop and hands -->
+  <path d="M292 337c12-17 33-24 57-22l70 13-3 63-110 3Z" fill="#f5e5b6" stroke="#252422" stroke-width="4" stroke-linejoin="round"/>
+  <path d="M302 391c33 7 76 9 117 0l17 12c-45 11-103 14-149 5Z" fill="#e9d39e" stroke="#252422" stroke-width="4" stroke-linejoin="round"/>
+  <path d="M282 335c-14-2-23 5-23 16 1 12 13 17 25 14l18-7-8-18Z" fill="#f7ddc9" stroke="#252422" stroke-width="4" stroke-linejoin="round"/>
+  <path d="M431 341c14-5 24 2 27 13 2 13-10 20-25 19l-16-5 4-22Z" fill="#f7ddc9" stroke="#252422" stroke-width="4" stroke-linejoin="round"/>
+  <path d="M352 355c7-7 18-8 25-1M363 347c-4 10-3 18 3 21" fill="none" stroke="#ad8e58" stroke-width="3" stroke-linecap="round"/>
+
+  <use href="#grass" transform="translate(306 500) rotate(-12)"/>
+  <use href="#grass" transform="translate(385 513) scale(.8)"/>
+  <use href="#grass" transform="translate(453 490) rotate(14)"/>
+</svg>
