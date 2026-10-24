@@ -365,10 +365,34 @@ function Home() {
               incomplete setup, a confusing next step, an empty state, or an
               action someone needs to complete with a keyboard.
             </p>
+            <div className="ai-workflow" aria-labelledby="ai-workflow-title">
+              <p className="ai-workflow__label">Working with AI tools</p>
+              <h3 id="ai-workflow-title">I give the tools context. I own the result.</h3>
+              <p>
+                I use Codex and Claude Code to explore approaches,
+                break down implementation work, and review code. On Possfer,
+                that means starting with the user role, screen states, and
+                product requirements before asking for a solution.
+              </p>
+              <ol className="ai-workflow__steps">
+                <li><strong>Frame</strong><span>Define the flow, constraints, and what done means.</span></li>
+                <li><strong>Build</strong><span>Compare options and inspect every proposed change.</span></li>
+                <li><strong>Check</strong><span>Test the interface, keyboard path, and edge states.</span></li>
+              </ol>
+              <p className="ai-workflow__note">
+                I’m also exploring Hermes as a company-specific second brain:
+                a way to keep each team’s knowledge and context useful across
+                ongoing work.
+              </p>
+            </div>
             <div className="about-facts">
               <div>
                 <strong>Toolkit</strong>
                 <span>React · Next.js · TypeScript · Tailwind CSS · Figma · Vitest · React Testing Library · Supabase</span>
+              </div>
+              <div>
+                <strong>AI tools</strong>
+                <span>Codex · Claude Code · Hermes</span>
               </div>
               <div>
                 <strong>Education</strong>
