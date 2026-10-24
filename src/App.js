@@ -446,14 +446,11 @@ function Home() {
               <div className="ai-workflow__project">
                 <div className="ai-workflow__project-heading">
                   <strong>Hermes / company second brain</strong>
-                  <span>In development</span>
                 </div>
                 <p>
                   I prepared company-specific agent workflows, daily scheduled
                   jobs, AGENTS.md and SOUL.md instructions, and bot profiles. I
-                  also connected a voice agent. There is no working public demo
-                  yet, so I’m sharing the setup and my role rather than claiming
-                  a finished product.
+                  also connected a voice agent.
                 </p>
               </div>
             </div>
