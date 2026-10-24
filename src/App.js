@@ -14,6 +14,30 @@ import "./App.css";
 
 const asset = (name) => process.env.PUBLIC_URL + "/assets/" + name;
 
+const possferIterations = [
+  {
+    label: "First draft",
+    image: "possfer-iteration-01.png",
+    alt: "Early Restaurant OS overview with a long setup checklist and optional tasks in a second card",
+    title: "Everything was visible, but the next step got lost.",
+    note: "The first pass put required and optional setup on the same screen. It made the scope visible, but gave several actions similar weight.",
+  },
+  {
+    label: "Second draft",
+    image: "possfer-iteration-02.png",
+    alt: "Second overview draft with a focused setup checklist and a separate optional setup card",
+    title: "I gave the next task a clearer place.",
+    note: "I pulled optional work away from the main checklist and made the next required action more prominent.",
+  },
+  {
+    label: "Later exploration",
+    image: "possfer-iteration-03.png",
+    alt: "Later Restaurant OS concept with company and location context, test mode, grouped navigation, and a setup progress list",
+    title: "The screen gained workspace context.",
+    note: "This pass added a management switcher, company and location context, test-mode messaging, grouped navigation, and a clearer register setup step.",
+  },
+];
+
 function ScrollToTop() {
   const { pathname, hash } = useLocation();
 
@@ -63,8 +87,10 @@ function ProjectHeading({ number, label, title, children }) {
 
 function Home() {
   const [activeFilter, setActiveFilter] = useState("all");
+  const [activePossferIteration, setActivePossferIteration] = useState(2);
   const showProject = (category) =>
     activeFilter === "all" || activeFilter === category;
+  const possferIteration = possferIterations[activePossferIteration];
 
   return (
     <main id="top">
@@ -142,11 +168,12 @@ function Home() {
           <div className="project__text">
             <ProjectHeading
               number="01"
-              label="Vizisfer · frontend & UI/UX"
+              label="Vizisfer · product work in progress"
               title="Possfer"
             >
-              I design and build responsive product interfaces for Possfer,
-              taking ideas from interaction design into frontend code.
+              I design and build responsive admin interfaces for Possfer. My
+              work spans product listing and editing, payment details,
+              reconciliation, and role-aware onboarding.
             </ProjectHeading>
             <dl className="project-details">
               <div>
@@ -158,6 +185,55 @@ function Home() {
                 <dd>Keyboard and focus behavior, states, component tests</dd>
               </div>
             </dl>
+          </div>
+          <figure className="project__visual project-board project-board--possfer">
+            <div className="project-board__topline"><span>Early product concept</span><span>01 / 05</span></div>
+            <div className="project-browser">
+              <div className="project-browser__bar" aria-hidden="true"><span /><span /><span /><i>Possfer / management</i></div>
+              <img
+                src={asset("possfer-management-overview.png")}
+                alt="Possfer management concept showing a restaurant setup checklist and navigation"
+              />
+            </div>
+            <figcaption>Restaurant-focused management concept · sample data</figcaption>
+          </figure>
+          <div className="project-iterations" aria-labelledby="possfer-iterations-title">
+            <div className="project-iterations__intro">
+              <div>
+                <p className="eyebrow">Process / early concepts</p>
+                <h4 id="possfer-iterations-title">How the dashboard changed</h4>
+              </div>
+              <p>Three passes on the same setup screen. Select a draft to see what I changed.</p>
+            </div>
+            <div className="project-iterations__tabs" role="group" aria-label="Possfer design drafts">
+              {possferIterations.map((iteration, index) => (
+                <button
+                  type="button"
+                  key={iteration.label}
+                  aria-pressed={activePossferIteration === index}
+                  aria-controls="possfer-iteration-stage"
+                  onClick={() => setActivePossferIteration(index)}
+                >
+                  <span>0{index + 1}</span> {iteration.label}
+                </button>
+              ))}
+            </div>
+            <div className="project-iterations__stage" id="possfer-iteration-stage">
+              <figure>
+                <a href={asset(possferIteration.image)} target="_blank" rel="noreferrer" aria-label={`Open ${possferIteration.label.toLowerCase()} at full size`}>
+                  <img src={asset(possferIteration.image)} alt={possferIteration.alt} loading="lazy" />
+                </a>
+                <figcaption>{possferIteration.label} · sample data · open image for full size</figcaption>
+              </figure>
+              <div className="project-iterations__reading" aria-live="polite">
+                <span className="project-iterations__count">0{activePossferIteration + 1} / 03</span>
+                <h5>{possferIteration.title}</h5>
+                <p>{possferIteration.note}</p>
+              </div>
+            </div>
+            <p className="project-iterations__context">
+              These screens are from an early restaurant-focused exploration. Possfer later moved toward a modular platform; this gallery documents the design process, not a released interface.
+            </p>
           </div>
         </article>
 

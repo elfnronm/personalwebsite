@@ -1472,14 +1472,6 @@ a:focus-visible {
   padding-block: 74px 84px;
 }
 
-.project--possfer {
-  grid-template-columns: minmax(0, 1fr);
-}
-
-.project--possfer .project__text {
-  max-width: 780px;
-}
-
 .project__text {
   align-self: center;
 }
