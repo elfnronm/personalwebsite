@@ -1840,3 +1840,130 @@ a:focus-visible {
   .voice-pair { gap: 8px; }
   .project--voice .voice-pair img { height: 180px; }
 }
+
+/* Possfer: archived design decisions, shown as a browsable sequence. */
+.project-iterations {
+  grid-column: 1 / -1;
+  min-width: 0;
+  margin-top: 12px;
+  padding-top: 36px;
+  border-top: 1px solid #879474;
+}
+
+.project-iterations__intro {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  gap: 22px;
+  margin-bottom: 22px;
+}
+
+.project-iterations__intro .eyebrow { margin-bottom: 7px; }
+.project-iterations__intro h4 {
+  margin: 0;
+  font-size: clamp(1.55rem, 2.5vw, 2.25rem);
+  letter-spacing: -.055em;
+  line-height: 1.15;
+}
+
+.project-iterations__intro > p {
+  max-width: 340px;
+  margin: 0;
+  color: #4f5b48;
+  font-size: .9rem;
+}
+
+.project-iterations__tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 9px;
+  margin-bottom: 15px;
+}
+
+.project-iterations__tabs button {
+  appearance: none;
+  padding: 8px 13px;
+  border: 1.5px solid #273226;
+  border-radius: 12px 15px 10px 13px;
+  background: #fffaf0;
+  color: #273226;
+  font: 700 .8rem "Trebuchet MS", "Segoe UI", sans-serif;
+  cursor: pointer;
+}
+
+.project-iterations__tabs button span {
+  margin-right: 8px;
+  color: #72417e;
+}
+
+.project-iterations__tabs button:hover { background: #efe1f0; }
+.project-iterations__tabs button[aria-pressed="true"] {
+  background: #b8dc82;
+  box-shadow: 2px 3px 0 #273226;
+}
+.project-iterations__tabs button:focus-visible {
+  outline: 2px solid #72417e;
+  outline-offset: 3px;
+}
+
+.project-iterations__stage {
+  display: grid;
+  grid-template-columns: minmax(0, 1.65fr) minmax(210px, .6fr);
+  gap: clamp(18px, 3vw, 34px);
+  align-items: center;
+  padding: clamp(13px, 2vw, 23px);
+  border: 1.5px solid #273226;
+  border-radius: 19px 16px 22px 18px;
+  background: #e5e9d5;
+  box-shadow: 5px 6px 0 rgb(39 50 38 / 13%);
+}
+
+.project-iterations__stage figure { min-width: 0; margin: 0; }
+.project-iterations__stage figure a {
+  display: block;
+  overflow: hidden;
+  border: 1px solid #8f9988;
+  border-radius: 6px;
+  background: #fff;
+}
+.project-iterations__stage img { display: block; width: 100%; height: auto; }
+.project-iterations__stage figcaption {
+  margin-top: 9px;
+  color: #4f5b48;
+  font-size: .73rem;
+}
+
+.project-iterations__count {
+  color: #72417e;
+  font-size: .72rem;
+  font-weight: 700;
+  letter-spacing: .08em;
+}
+.project-iterations__reading h5 {
+  margin: 11px 0 12px;
+  font-family: Georgia, serif;
+  font-size: clamp(1.35rem, 2.4vw, 2.1rem);
+  line-height: 1.15;
+  letter-spacing: -.03em;
+}
+.project-iterations__reading p { margin: 0; font-size: .92rem; line-height: 1.6; }
+.project-iterations__context {
+  max-width: 850px;
+  margin: 18px 0 0;
+  color: #4f5b48;
+  font-size: .82rem;
+}
+
+@media (max-width: 760px) {
+  .project-iterations__intro { display: block; }
+  .project-iterations__intro > p { margin-top: 12px; }
+  .project-iterations__stage { grid-template-columns: 1fr; }
+  .project-iterations__reading { padding: 4px 3px 3px; }
+}
+
+@media (max-width: 640px) {
+  .project-iterations { padding-top: 26px; }
+  .project-iterations__tabs { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 6px; }
+  .project-iterations__tabs button { padding: 8px 6px; font-size: .7rem; text-align: center; }
+  .project-iterations__tabs button span { display: block; margin: 0 0 2px; }
+}
