@@ -379,11 +379,19 @@ function Home() {
                 <li><strong>Build</strong><span>Compare options and inspect every proposed change.</span></li>
                 <li><strong>Check</strong><span>Test the interface, keyboard path, and edge states.</span></li>
               </ol>
-              <p className="ai-workflow__note">
-                I’m also exploring Hermes as a company-specific second brain:
-                a way to keep each team’s knowledge and context useful across
-                ongoing work.
-              </p>
+              <div className="ai-workflow__project">
+                <div className="ai-workflow__project-heading">
+                  <strong>Hermes / company second brain</strong>
+                  <span>In development</span>
+                </div>
+                <p>
+                  I prepared company-specific agent workflows, daily scheduled
+                  jobs, AGENTS.md and SOUL.md instructions, and bot profiles. I
+                  also connected a voice agent. There is no working public demo
+                  yet, so I’m sharing the setup and my role rather than claiming
+                  a finished product.
+                </p>
+              </div>
             </div>
             <div className="about-facts">
               <div>

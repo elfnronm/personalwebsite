@@ -1305,12 +1305,25 @@ a:focus-visible {
   color: #51345e;
 }
 
-.ai-workflow .ai-workflow__note {
-  margin: 19px 0 0;
-  padding-top: 15px;
+.ai-workflow__project {
+  margin-top: 19px;
+  padding-top: 16px;
   border-top: 1px solid #bdb8ad;
-  font-size: .83rem;
 }
+
+.ai-workflow__project-heading {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 4px 12px;
+  margin-bottom: 7px;
+  font-size: .88rem;
+}
+
+.ai-workflow__project-heading strong { color: #51345e; }
+.ai-workflow__project-heading span { color: #586551; font-size: .73rem; }
+.ai-workflow__project p { margin-bottom: 0; font-size: .83rem; }
 
 @media (max-width: 640px) {
   .ai-workflow { padding: 21px 19px 17px; }
