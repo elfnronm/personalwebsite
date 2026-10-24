@@ -9,7 +9,7 @@ export default function Big2() {
         <Link className="case-back" to="/#work">
           ← Back to work
         </Link>
-        <h1>A better way to keep score at Big 2 night.</h1>
+        <h1>Big 2 scorekeeper</h1>
         <p className="case-hero__summary">
           A mobile companion for a social card game, built around the tasks that
           interrupt play: keeping score, checking rules, and picking up where a
@@ -118,7 +118,7 @@ export default function Big2() {
       </div>
       <div className="case-next wrap">
         <p>Another project</p>
-        <Link className="text-link" to="/projects/voice-study">
+        <Link className="inline-link" to="/projects/voice-study">
           Voice interface research <span aria-hidden="true">↗</span>
         </Link>
       </div>

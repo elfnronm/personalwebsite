@@ -1,237 +1,401 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import {
   BrowserRouter,
   Link,
+  MemoryRouter,
   Route,
   Routes,
   useLocation,
 } from "react-router-dom";
 import Big2 from "./pages/Big2";
 import VoiceStudy from "./pages/VoiceStudy";
+import ClickSpark from "./components/reactbits/ClickSpark";
 import "./App.css";
 
-const asset = (name) => `${process.env.PUBLIC_URL}/assets/${name}`;
+const asset = (name) => process.env.PUBLIC_URL + "/assets/" + name;
 
 function ScrollToTop() {
   const { pathname, hash } = useLocation();
+
   useEffect(() => {
-    if (hash)
+    if (hash) {
       requestAnimationFrame(() =>
         document.getElementById(hash.slice(1))?.scrollIntoView(),
       );
-    else window.scrollTo(0, 0);
+    } else {
+      window.scrollTo(0, 0);
+    }
   }, [pathname, hash]);
+
   return null;
 }
 
 function Header() {
-  const { pathname } = useLocation();
-  const home = pathname === "/";
+  const home = useLocation().pathname === "/";
+
   return (
     <header className="site-header">
-      <div className="site-header__inner wrap">
+      <div className="wrap site-header__inner">
         <Link className="wordmark" to="/" aria-label="Elif Önem, home">
-          Elif Önem<span>.</span>
+          Elif Önem
         </Link>
         <nav aria-label="Main navigation">
           {home ? <a href="#work">Work</a> : <Link to="/#work">Work</Link>}
           {home ? <a href="#about">About</a> : <Link to="/#about">About</Link>}
-          <a href="mailto:elif_onem@msn.com">
-            Email me <span aria-hidden="true">↗</span>
-          </a>
+          <a href="mailto:elif_onem@msn.com">Email</a>
         </nav>
       </div>
     </header>
   );
 }
 
-function ProjectLink({ to }) {
+function ProjectHeading({ number, label, title, children }) {
   return (
-    <Link className="text-link" to={to}>
-      Read the case study <span aria-hidden="true">↗</span>
-    </Link>
+    <div className="project-copy">
+      <p className="project-kicker">
+        <span>{number}</span> {label}
+      </p>
+      <h3>{title}</h3>
+      <p className="project-description">{children}</p>
+    </div>
   );
 }
 
 function Home() {
+  const [activeFilter, setActiveFilter] = useState("all");
+  const showProject = (category) =>
+    activeFilter === "all" || activeFilter === category;
+
   return (
-    <main>
-      <section className="hero wrap" id="top">
-        <div className="hero__main">
-          <h1>
-            I design the interface.
+    <main id="top">
+      <section className="hero wrap" aria-labelledby="intro-title">
+        <div className="hero__copy">
+          <p className="eyebrow">Frontend Developer & UI/UX Designer</p>
+          <h1 id="intro-title">
+            Hi, I’m Elif.
             <br />
-            <em>Then I build it.</em>
+            I design screens and write the frontend code behind them.
           </h1>
-          <p className="hero__intro">
-            I’m Elif, a frontend developer working across UI design and React. I
-            care about how a product works, how it feels, and what happens
-            between the Figma file and the browser.
+          <p className="hero__summary">
+            I’m based in Oakville, Ontario. At Vizisfer, I design and build
+            Possfer’s admin interfaces with React, Next.js, and TypeScript.
           </p>
-          <div className="hero__actions">
-            <a className="button button--dark" href="#work">
-              See my work <span aria-hidden="true">↘</span>
-            </a>
-            <a className="text-link" href="mailto:elif_onem@msn.com">
-              Get in touch <span aria-hidden="true">↗</span>
-            </a>
-          </div>
-        </div>
-        <div className="hero__aside" aria-label="Profile details">
-          <span>Oakville, Ontario</span>
-          <span>
-            Frontend development
-            <br />& interface design
-          </span>
-          <span>Vizisfer · Apr 2026–present</span>
-        </div>
-      </section>
-
-      <section className="work-section" id="work">
-        <div className="wrap">
-          <div className="section-heading">
-            <h2>Selected work</h2>
-            <p>A mix of product interfaces, frontend work, and research.</p>
-          </div>
-          <article className="feature-project">
-            <div className="feature-project__content">
-              <p className="project-meta">
-                Product interface · UI/UX + frontend
-              </p>
-              <h3>Possfer</h3>
-              <p>
-                Designing the foundations for a modular operations platform:
-                navigation, setup, reusable UI patterns, and the everyday
-                details that make complex tools easier to use.
-              </p>
-              <p className="project-note">
-                Ongoing project · case study in progress
-              </p>
-            </div>
-            <div className="possfer-mark" aria-hidden="true">
-              <span>Possfer</span>
-              <span className="possfer-mark__line"></span>
-              <small>Modular tools for everyday operations.</small>
-            </div>
-          </article>
-
-          <div className="project-grid">
-            <article className="project-tile">
-              <Link
-                to="/projects/Big2"
-                className="project-tile__image project-tile__image--big2"
-                aria-label="Read the Big 2 case study"
-              >
-                <img
-                  src={asset("InGame_Big2.jpg")}
-                  alt="Big 2 game screen showing four players and their scores"
-                  loading="lazy"
-                />
-              </Link>
-              <div className="project-tile__body">
-                <p className="project-meta">
-                  Android app · design + development
-                </p>
-                <h3>Big 2 companion</h3>
-                <p>
-                  A scorekeeper and rule reference for the card game, tested
-                  against a spreadsheet with eight players.
-                </p>
-                <ProjectLink to="/projects/Big2" />
-              </div>
-            </article>
-            <article className="project-tile">
-              <Link
-                to="/projects/voice-study"
-                className="project-tile__image project-tile__image--voice"
-                aria-label="Read the voice interface study"
-              >
-                <img
-                  src={asset("highFi_hci.png")}
-                  alt="Grid interface used in the voice instruction study"
-                  loading="lazy"
-                />
-              </Link>
-              <div className="project-tile__body">
-                <p className="project-meta">HCI research · team project</p>
-                <h3>When machines train humans</h3>
-                <p>
-                  We built a controlled task interface to study whether
-                  different voices change how people follow instructions.
-                </p>
-                <ProjectLink to="/projects/voice-study" />
-              </div>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <section className="more-work wrap" aria-labelledby="more-work-title">
-        <h2 id="more-work-title">Also in code</h2>
-        <div className="more-work__item">
-          <div>
-            <h3>Expense tracker</h3>
-            <p>
-              A small full-stack project with React, Supabase authentication,
-              and a Deno API for adding, editing, and reviewing expenses.
-            </p>
-          </div>
-          <a
-            className="text-link"
-            href="https://github.com/elfnronm/expense_tracker"
-            target="_blank"
-            rel="noreferrer"
-          >
-            View the code <span aria-hidden="true">↗</span>
+          <a className="inline-link" href="#work">
+            See selected work <span aria-hidden="true">↓</span>
           </a>
         </div>
+        <div className="hero__art">
+          <ClickSpark>
+            <button className="hero__art-button" type="button" aria-label="Make the meadow sparkle">
+              <img src={asset("elif-meadow.svg")} alt="" />
+              <span className="hero__art-hint" aria-hidden="true">tap the meadow ✳</span>
+            </button>
+          </ClickSpark>
+        </div>
+        <aside className="hero__aside" aria-label="Current role">
+          <span className="aside-rule" aria-hidden="true" />
+          <p className="aside-label">Right now</p>
+          <p>
+            Frontend Developer & UI/UX Designer
+            <br />
+            Vizisfer
+          </p>
+          <p className="aside-detail">Oakville · Apr 2026–present</p>
+        </aside>
       </section>
-      <section className="about-section wrap" id="about">
-        <h2>A little about me</h2>
-        <div className="about-section__copy">
+
+      <section className="work-section wrap" id="work" aria-labelledby="work-title">
+        <div className="section-intro">
+          <p className="eyebrow">Selected work / 2026 and earlier</p>
+          <h2 id="work-title">Selected work</h2>
           <p>
-            I’m a computer science graduate based in Oakville. At Vizisfer, I
-            work across interface design and development. I like the part of a
-            project where a rough flow becomes something people can actually
-            use.
+            Product interfaces, deployed code, and earlier experiments. Pick a
+            trail to explore.
           </p>
-          <p>
-            My day-to-day tools include React, TypeScript, CSS, and Figma. I’m
-            especially interested in design systems, accessible interactions,
-            and the small implementation choices that give an interface its
-            character.
-          </p>
-          <div className="about-section__links">
+        </div>
+
+        <div className="project-filters" role="group" aria-label="Filter projects">
+          {[
+            ["all", "Everything"],
+            ["product", "Product work"],
+            ["build", "Code projects"],
+            ["explore", "Earlier work"],
+          ].map(([value, label]) => (
+            <button
+              className="filter-button"
+              type="button"
+              key={value}
+              aria-pressed={activeFilter === value}
+              onClick={() => setActiveFilter(value)}
+            >
+              {label}
+            </button>
+          ))}
+        </div>
+        <p className="sr-only" aria-live="polite">
+          {activeFilter === "all"
+            ? "Showing all five projects"
+            : `Showing ${activeFilter} projects`}
+        </p>
+
+        <article className="project project--possfer" hidden={!showProject("product")}>
+          <div className="project__text">
+            <ProjectHeading
+              number="01"
+              label="Vizisfer · product work in progress"
+              title="Possfer"
+            >
+              I design and build responsive admin interfaces for Possfer. My
+              work spans product listing and editing, payment details,
+              reconciliation, and role-aware onboarding.
+            </ProjectHeading>
+            <dl className="project-details">
+              <div>
+                <dt>Frontend</dt>
+                <dd>Next.js, React, TypeScript, reusable components</dd>
+              </div>
+              <div>
+                <dt>Quality</dt>
+                <dd>Keyboard and focus behavior, states, component tests</dd>
+              </div>
+            </dl>
+          </div>
+          <figure className="project__visual project-board project-board--possfer">
+            <div className="project-board__topline"><span>Product interface</span><span>01 / 05</span></div>
+            <div className="project-browser">
+              <div className="project-browser__bar" aria-hidden="true"><span /><span /><span /><i>Possfer / management</i></div>
+              <img
+                src={asset("possfer-management-overview.png")}
+                alt="Possfer management concept showing a restaurant setup checklist and navigation"
+              />
+            </div>
+            <figcaption>Management home · design concept with sample data</figcaption>
+          </figure>
+        </article>
+
+        <article className="project project--expense" hidden={!showProject("build")}>
+          <div className="project__text">
+            <ProjectHeading
+              number="02"
+              label="Deployed full-stack project · 2026"
+              title="Expense Tracker"
+            >
+              A React and TypeScript app for recording and reviewing expenses.
+              I built the Deno REST API, added client and server validation,
+              and deployed the frontend and API separately.
+            </ProjectHeading>
+            <p className="project-evidence">
+              Supabase Auth and backend JWT checks protect each account; the
+              PostgreSQL data model keeps users’ records separate.
+            </p>
             <a
-              className="text-link"
-              href="https://github.com/elfnronm"
+              className="inline-link"
+              href="https://github.com/elfnronm/expense_tracker"
               target="_blank"
               rel="noreferrer"
             >
-              GitHub <span aria-hidden="true">↗</span>
-            </a>
-            <a className="text-link" href="mailto:elif_onem@msn.com">
-              Email <span aria-hidden="true">↗</span>
+              View the code <span aria-hidden="true">↗</span>
             </a>
           </div>
-        </div>
+          <figure className="project__visual project-board project-board--expense">
+            <div className="project-board__topline"><span>Architecture sketch</span><span>02 / 05</span></div>
+            <div className="expense-art" role="img" aria-label="Illustration of an expense record moving from the React interface through a Deno API to private Supabase storage">
+              <div className="expense-art__receipt">
+                <span className="expense-art__icon" aria-hidden="true">↗</span>
+                <span className="expense-art__label">EXPENSE / 001</span>
+                <strong>From entry<br />to review.</strong>
+                <span className="expense-art__line expense-art__line--wide" />
+                <span className="expense-art__line" />
+                <span className="expense-art__line expense-art__line--short" />
+                <span className="expense-art__receipt-footer">one account · its own records</span>
+              </div>
+              <div className="expense-art__flow" aria-hidden="true">
+                <span>React + TS <b>→</b></span>
+                <span>Deno API <b>→</b></span>
+                <span>Supabase</span>
+              </div>
+            </div>
+            <figcaption>How the deployed app separates interface, API, and data</figcaption>
+          </figure>
+        </article>
+
+        <article className="project project--rag" hidden={!showProject("build")}>
+          <div className="project__text">
+            <ProjectHeading
+              number="03"
+              label="Automation project · 2026"
+              title="RAG document pipeline"
+            >
+              An n8n workflow that takes PDF, Excel, CSV, and DOCX files from
+              Google Drive, splits their text, generates embeddings, and sends
+              them to Supabase vector storage.
+            </ProjectHeading>
+            <p className="project-footnote">
+              Built with n8n, OpenAI embeddings, and Supabase Vector DB.
+            </p>
+          </div>
+          <figure className="project__visual project-board project-board--rag">
+            <div className="project-board__topline"><span>Workflow sketch</span><span>03 / 05</span></div>
+            <div className="rag-art" role="img" aria-label="Google Drive documents flow through n8n text splitting and OpenAI embeddings into Supabase vector storage">
+              <div className="rag-art__files" aria-hidden="true">
+                <span>PDF</span><span>CSV</span><span>DOCX</span>
+              </div>
+              <span className="rag-art__arrow" aria-hidden="true">→</span>
+              <div className="rag-art__node" aria-hidden="true"><small>PROCESS</small><strong>n8n</strong><span>split + embed</span></div>
+              <span className="rag-art__arrow" aria-hidden="true">→</span>
+              <div className="rag-art__vectors" aria-hidden="true"><span /><span /><span /><span /><span /><span /><strong>vector DB</strong></div>
+            </div>
+            <figcaption>Document ingestion, illustrated from source to vector store</figcaption>
+          </figure>
+        </article>
+
+        <article className="project project--big2" hidden={!showProject("explore")}>
+          <div className="project__text">
+            <ProjectHeading
+              number="04"
+              label="Independent project · Android"
+              title="Big 2 scorekeeper"
+            >
+              I built a card-game companion to handle scoring, rules, and game
+              history so players could spend less time in a spreadsheet.
+            </ProjectHeading>
+            <p className="project-evidence">
+              In a small comparison with eight players, six preferred the app to
+              spreadsheet scoring.
+            </p>
+            <Link className="inline-link" to="/projects/Big2">
+              Read the project <span aria-hidden="true">↗</span>
+            </Link>
+          </div>
+          <figure className="project__visual project-board project-board--big2">
+            <div className="project-board__topline"><span>Android app</span><span>04 / 05</span></div>
+            <div className="phone-pair">
+              <div className="phone-pair__phone phone-pair__phone--back"><img src={asset("Main_Big2.jpg")} alt="Big 2 app home screen with play game and rules actions" loading="lazy" /></div>
+              <div className="phone-pair__phone phone-pair__phone--front"><img src={asset("InGame_Big2.jpg")} alt="Big 2 app showing four players and round scores" loading="lazy" /></div>
+            </div>
+            <figcaption>Home screen and live scorekeeping</figcaption>
+          </figure>
+        </article>
+
+        <article className="project project--voice" hidden={!showProject("explore")}>
+          <div className="project__text">
+            <ProjectHeading
+              number="05"
+              label="Team project · HCI research"
+              title="Voice instructions study"
+            >
+              Our team built a shape-placement task to test how different voice
+              styles affected instructions. We changed the original task after
+              finding it introduced too many variables.
+            </ProjectHeading>
+            <p className="project-evidence">
+              The study found no statistically significant performance
+              difference between voice types. Participants valued clear,
+              consistent instructions.
+            </p>
+            <Link className="inline-link" to="/projects/voice-study">
+              Read the study <span aria-hidden="true">↗</span>
+            </Link>
+          </div>
+          <figure className="project__visual project-board project-board--voice">
+            <div className="project-board__topline"><span>Research process</span><span>05 / 05</span></div>
+            <div className="voice-pair">
+              <div><span className="voice-pair__label">01 / prototype</span><img src={asset("midFi_hci.png")} alt="Mid-fidelity shape-placement prototype with a five by five grid" loading="lazy" /></div>
+              <div><span className="voice-pair__label">02 / study UI</span><img src={asset("highFi_hci.png")} alt="Final shape-placement grid used in the voice instruction study" loading="lazy" /></div>
+            </div>
+            <figcaption>From prototype to participant interface</figcaption>
+          </figure>
+        </article>
+
       </section>
 
-      <section className="contact-section" id="contact">
-        <div className="wrap contact-section__inner">
-          <h2>
-            Have a role or project
-            <br />
-            in mind?
-          </h2>
+      <section className="experience-section wrap" id="experience" aria-labelledby="experience-title">
+        <div className="section-intro section-intro--experience">
+          <p className="eyebrow">Experience</p>
+          <h2 id="experience-title">Where I’ve worked</h2>
+          <p>Open a role to see the work behind the title.</p>
+        </div>
+        <details className="experience-item" open>
+          <summary>
+            <span className="experience-item__company">Vizisfer <span className="experience-item__place">/ Oakville, ON</span></span>
+            <span>Frontend Developer & UI/UX Designer</span>
+            <span>Apr 2026–present</span>
+            <span className="experience-item__icon" aria-hidden="true">+</span>
+          </summary>
+          <div className="experience-item__content">
+            <p>Working on the Possfer platform.</p>
+            <ul>
+              <li>Built responsive Next.js, React, and TypeScript admin interfaces for catalog and payment workflows, with reusable components and English/Turkish content.</li>
+              <li>Added keyboard and focus behavior, loading and error states, and component tests.</li>
+              <li>Translated requirements into role-aware onboarding, team access, and module discovery flows.</li>
+            </ul>
+          </div>
+        </details>
+        <details className="experience-item">
+          <summary>
+            <span className="experience-item__company">Vosyn <span className="experience-item__place">/ Etobicoke, ON</span></span>
+            <span>UI/UX Design Team Lead Intern</span>
+            <span>Jul 2025–May 2026</span>
+            <span className="experience-item__icon" aria-hidden="true">+</span>
+          </summary>
+          <div className="experience-item__content">
+            <p>NovaForge / AI Venture Lab.</p>
+            <ul>
+              <li>Led a multidisciplinary UI/UX team and turned stakeholder feedback into prioritized work and weekly updates.</li>
+              <li>Improved WordPress layouts and navigation using user feedback; maintained content across Office146 and NovaForge.</li>
+            </ul>
+          </div>
+        </details>
+      </section>
+
+      <section className="about-section" id="about" aria-labelledby="about-title">
+        <div className="wrap about-section__inner">
           <div>
+            <p className="eyebrow">About</p>
+            <h2 id="about-title">How I work</h2>
+          </div>
+          <div className="about-section__body">
             <p>
-              I’m interested in frontend and design-focused development work.
-              Tell me what you’re building.
+              I studied computer science and now work across UI design and
+              frontend development. I use Figma to work through flows and React,
+              TypeScript, and CSS to build them in the browser.
             </p>
-            <a className="button button--light" href="mailto:elif_onem@msn.com">
-              Email Elif <span aria-hidden="true">↗</span>
-            </a>
+            <p>
+              I pay attention to what happens between the main screens: an
+              incomplete setup, a confusing next step, an empty state, or an
+              action someone needs to complete with a keyboard.
+            </p>
+            <div className="about-facts">
+              <div>
+                <strong>Toolkit</strong>
+                <span>React · Next.js · TypeScript · Tailwind CSS · Figma · Vitest · React Testing Library · Supabase</span>
+              </div>
+              <div>
+                <strong>Education</strong>
+                <span>BA, Computer Science · York University · 2026</span>
+              </div>
+            </div>
+            <div className="about-section__links">
+              <a
+                className="inline-link"
+                href="https://www.linkedin.com/in/elif-onem/"
+                target="_blank"
+                rel="noreferrer"
+              >
+                LinkedIn <span aria-hidden="true">↗</span>
+              </a>
+              <a
+                className="inline-link"
+                href="https://github.com/elfnronm"
+                target="_blank"
+                rel="noreferrer"
+              >
+                GitHub <span aria-hidden="true">↗</span>
+              </a>
+              <a className="inline-link" href="mailto:elif_onem@msn.com">
+                Email me <span aria-hidden="true">↗</span>
+              </a>
+            </div>
           </div>
         </div>
       </section>
@@ -242,9 +406,9 @@ function Home() {
 function Footer() {
   return (
     <footer className="site-footer">
-      <div className="wrap">
-        <span>Elif Önem</span>
-        <span>Designed and built with care.</span>
+      <div className="wrap site-footer__inner">
+        <span>Elif Önem · Oakville, Ontario</span>
+        <a href="mailto:elif_onem@msn.com">elif_onem@msn.com</a>
         <a href="#top">Back to top ↑</a>
       </div>
     </footer>
@@ -252,8 +416,11 @@ function Footer() {
 }
 
 export default function App() {
+  const isOfflinePreview = window.location.protocol === "file:";
+  const Router = isOfflinePreview ? MemoryRouter : BrowserRouter;
+
   return (
-    <BrowserRouter basename={process.env.PUBLIC_URL}>
+    <Router basename={isOfflinePreview ? undefined : process.env.PUBLIC_URL}>
       <ScrollToTop />
       <Header />
       <Routes>
@@ -262,6 +429,6 @@ export default function App() {
         <Route path="/projects/voice-study" element={<VoiceStudy />} />
       </Routes>
       <Footer />
-    </BrowserRouter>
+    </Router>
   );
 }

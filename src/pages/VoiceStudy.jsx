@@ -9,7 +9,7 @@ export default function VoiceStudy() {
         <Link className="case-back" to="/#work">
           ← Back to work
         </Link>
-        <h1>When machines train humans.</h1>
+        <h1>Voice instructions study</h1>
         <p className="case-hero__summary">
           A team HCI study of voice-guided tasks. We built a controlled
           interface to ask a practical question: does a more human-sounding
@@ -130,7 +130,7 @@ export default function VoiceStudy() {
       </div>
       <div className="case-next wrap">
         <p>Another project</p>
-        <Link className="text-link" to="/projects/Big2">
+        <Link className="inline-link" to="/projects/Big2">
           Big 2 companion <span aria-hidden="true">↗</span>
         </Link>
       </div>
